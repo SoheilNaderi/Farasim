@@ -1,7 +1,7 @@
 #include <ESP8266WiFi.h>
 
-const char* ssid = "Soheil";
-const char* password = "sp760067sn";
+const char* ssid = "AP-SSID";
+const char* password = "AP-PASSWORD";
 
 WiFiServer server(80);
 int led = 2;
@@ -14,23 +14,15 @@ void setup()
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
 
-  //Serial.println();
-  //Serial.println();
-  //Serial.print("Connecting to ");
-  //Serial.println(ssid);
-
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED)
   {
     delay(250);
-    //Serial.print(".");
   }
-  //Serial.println("");
-  //Serial.println("WiFi Connected.");
+
 
   server.begin();
-  //Serial.println("Server Started");
   
   Serial.println("");
   delay(1000);
